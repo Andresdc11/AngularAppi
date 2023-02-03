@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<h1>Hola carenalga {{persona.edad}}</h1>
+<hr>
+<div>
+  <div *ngFor = "let product of people">
+    <img width ="250" [src] ="product.imagen" alt="montaña">
+    <h3> {{ product.age }} </h3>
+
+  </div>
+</div>
+<hr>
+<h1>ngFor</h1>
+<input type="text" required #nomInput="ngModel" [(ngModel)]="newName">
+<button (click)="addName()">add name</button>
+<ul>
+  <li *ngIf="names.length === 0">no hay elementos</li>
+  <li *ngFor="let name of names; index as i ">
+    {{i}} {{name}}
+    <button (click)="deleteName(i)">delete</button>
+  </li>
+</ul>
+<hr>
+<h2>como susar ngmodel</h2>
+<p>posición {{ persona.edad}}</p>
+<input type="number" min='18' max='70'required #edadInput="ngModel" [(ngModel)]="persona.edad">
+<p>valid: {{ edadInput.valid }}</p>
+<p>nom {{ persona.nombre}}</p>
+<input type="text" required #nomInput="ngModel" [(ngModel)]="persona.nombre">
+<p>valid: {{ nomInput.valid }}</p>
+
+<hr>
+<input type="text" required [(ngModel)]="persona.nombre">
+<div [ngSwitch]="persona.nombre">
+  <p *ngSwitchCase="'andres'">
+     se encontro la persona
+  </p>
+  <p *ngSwitchCase="'juan'">
+     se encontro la persona
+  </p>
+  <p *ngSwitchCase="'luis'"> se encontro la persona</p>
+
+  <p *ngSwitchDefault> No se encontro la persona</p>
+</div>
+<hr>
+<h2>keyup actualiza la variable de objeto cuando ingresa valores en el input1 </h2>
+<h2> <img width= '100' [src]= persona.imagen alt=""></h2>
+<progress max="100" [value]="persona.edad"></progress>
+<button  [disabled]="btnDisable">enviar</button>
+<h3>nombre {{persona.nombre}}</h3>
+<input type="text" [value]="persona.nombre" (keyup)="changeName($event)" />
+<hr>
+
+<h2>Eventos</h2>
+<button  [disabled]="btnDisable">enviar</button>
+<button  (click)="togglebutton()">togglebutton</button>
+<button  (click)="increase()">age++</button>
+<p>edad {{persona.edad}}</p>
+<div class = "caja" (scroll)="onScroll($event)">
+  <p>siempre que en css cambiemos las propiedades es necesario dejar un espacio al final, en cambio en los componentes no se debe dejar espacio los eventos nativos se inician con$, div es un elemento nijndaklfnlkadncfla ajdlnbflkjansdlkjflkajbsdlfkakjsdfkjnadjknfjbdklagjdfagkjndfjkvnalkjdbnfjkablfgalkjbdgkljbadkjfnkjnkjalng</p>
+</div>
+
+<hr>
+<body>
+<img width='700'src={{cat}} alt="gato">
+</body>
+</html>
